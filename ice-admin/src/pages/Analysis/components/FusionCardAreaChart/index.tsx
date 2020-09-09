@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC} from 'react';
 import { Card } from '@alifd/next';
 import { Chart, Geom } from 'bizcharts';
 import mock from './mock.js';
@@ -30,7 +30,8 @@ const DEFAULT_DATA: FusionCardAreaChartProps = {
   chartHeight: 100,
 };
 
-const FusionCardAreaChart: React.FunctionComponent<FusionCardAreaChartProps> = (props = DEFAULT_DATA): JSX.Element => {
+// const FusionCardAreaChart: React.FunctionComponent<FusionCardAreaChartProps> = (props = DEFAULT_DATA): JSX.Element => {
+const FusionCardAreaChart: SFC<FusionCardAreaChartProps> = (props = DEFAULT_DATA) => {
 
   const { title, subTitle, value, chartData, des, rate, chartHeight } = { ...DEFAULT_DATA, ...props };
 

@@ -32,7 +32,7 @@ import Footer from './components/Footer';
 })();
 
 interface IGetDevice {
-  (width: number): 'phone' | 'tablet' | 'desktop';
+  (width: number): 'phone' | 'tablet' | 'desktop';  // 方法参数及返回类型
 }
 export default function BasicLayout({
   children,

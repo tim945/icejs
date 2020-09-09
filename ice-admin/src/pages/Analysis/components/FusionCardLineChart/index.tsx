@@ -6,8 +6,9 @@ import mock from './mock.js';
 import styles from './index.module.scss';
 
 interface ChartItem {
-  date?: string;
+  date?: string | number;
   value?: number;
+  num?: number
 }
 
 interface CardConfig {

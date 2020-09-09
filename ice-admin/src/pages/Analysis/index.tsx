@@ -12,6 +12,7 @@ import FusionCardGroupBarChart from './components/FusionCardGroupBarChart';
 const { Cell } = ResponsiveGrid;
 
 const Analysis = () => {
+  // return null
   return (
     <ResponsiveGrid gap={20}>
       <Cell colSpan={12}>
