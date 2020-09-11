@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, ResponsiveGrid, Divider, Card, Avatar, Upload, Button, Form, Input, Message } from '@alifd/next';
 
 import styles from './index.module.scss';
@@ -23,7 +23,7 @@ const DEFAULT_DATA: DataSource = {
   name: '阿里-Amy',
 };
 
-const DEFAULT_ON_SUBMIT = (values: SettingPersonProps, errors: []): void => {
+const DEFAULT_ON_SUBMIT = (values: DataSource, errors: []): void => {
   if (errors) {
     console.log('errors', errors);
     return;
@@ -38,11 +38,12 @@ const SettingPersonBlock: React.SFC<SettingPersonProps> = (props): JSX.Element =
     onSubmit = DEFAULT_ON_SUBMIT,
   } = props;
 
-  const [postData, setValue] = useState<SettingPersonProps>(dataSource);
+  const [postData, setValue] = useState<DataSource>(dataSource);
   const [buttonText, setButtonText] = useState('发送验证码');
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  const formChange = (values: SettingPersonProps): void => {
+  const formChange = (values: DataSource): void => {
+    console.log(values);
     setValue(values);
   };
 
@@ -55,17 +56,36 @@ const SettingPersonBlock: React.SFC<SettingPersonProps> = (props): JSX.Element =
     countDown = 60;
     setButtonText(`${countDown}s`);
 
-    coutDownTimer = setInterval(() => {
-      if (--countDown <= 0) {
-        if (coutDownTimer) clearInterval(coutDownTimer);
-        setButtonText('获取验证码');
-        setButtonDisabled(false);
-        return;
-      }
+    // coutDownTimer = setInterval(() => {
+    //   if (--countDown <= 0) {
+    //     if (coutDownTimer) clearInterval(coutDownTimer);
+    //     setButtonText('获取验证码');
+    //     setButtonDisabled(false);
+    //     return;
+    //   }
+    //   console.log(countDown)
 
-      setButtonText(`${countDown}s`);
-    }, 1000);
+    //   setButtonText(`${countDown}s`);
+    // }, 1000);
   };
+  
+  useEffect(() => {
+    if (buttonDisabled) {   
+      if (countDown > 0) {
+        const timer = setInterval(() => {
+          --countDown;
+          console.log(countDown)
+          setButtonText(`${countDown}s`);
+          if (countDown <= 0) {           
+            setButtonText('获取验证码');
+            setButtonDisabled(false); // <----- 注意此处，更新条件值，才能触发 destroy 
+          }
+        }, 1000);
+        return () => {console.log('destroy timer');clearInterval(timer);}
+      }   
+    }  
+    return 
+  }, [buttonDisabled])  // 有条件触发，当页面页面条件改变后，会执行清除操作
 
   return (
     <Card free>

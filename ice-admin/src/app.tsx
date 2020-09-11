@@ -12,5 +12,9 @@ const appConfig = {
       <LocaleProvider locale={locale}>{children}</LocaleProvider>
     ),
   },
+  router: {
+    // "lazy": true, // 约定式路由开启按须加载
+    fallback: <div>loading...</div>
+  },
 };
 createApp(appConfig);

@@ -37,6 +37,7 @@ const LoginBlock: React.FunctionComponent<LoginProps> = (props = { dataSource: D
   const [isRunning, checkRunning] = useState(false);
   const [isPhone, checkPhone] = useState(false);
   const [second, setSecond] = useState(59);
+  console.log(second)
 
   useInterval(() => {
     setSecond(second - 1);
@@ -44,7 +45,7 @@ const LoginBlock: React.FunctionComponent<LoginProps> = (props = { dataSource: D
       checkRunning(false);
       setSecond(59);
     }
-  }, isRunning ? 1000 : null);
+  }, isRunning ? 1000 : null, isPhone);
 
   const formChange = (values: IDataSource) => {
     setValue(values);
@@ -117,10 +118,12 @@ const LoginBlock: React.FunctionComponent<LoginProps> = (props = { dataSource: D
   </>;
 
   const byAccount = () => {
+    console.log('byAccount')
     checkPhone(false);
   };
 
   const byForm = () => {
+    console.log('byForm')
     checkPhone(true);
   };
 

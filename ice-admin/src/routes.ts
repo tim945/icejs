@@ -1,6 +1,13 @@
+import { lazy } from 'ice';
+
+// 按需加载
+const Login = lazy(() => import(/* webpackChunkName: "Login" */'@/pages/Login'));
+const Register = lazy(() => import(/* webpackChunkName: "Register" */'@/pages/Register'));
+
+
 import UserLayout from '@/layouts/UserLayout';
-import Login from '@/pages/Login';
-import Register from '@/pages/Register';
+// import Login from '@/pages/Login';
+// import Register from '@/pages/Register';
 import BasicLayout from '@/layouts/BasicLayout';
 import Solution from '@/pages/Solution';
 import Analysis from '@/pages/Analysis';
@@ -35,6 +42,16 @@ import FeedbackNotFound from '@/pages/FeedbackNotFound';
 import FeedbackServerError from '@/pages/FeedbackServerError';
 import Settings from '@/pages/Settings';
 import Person from '@/pages/Person';
+
+// 可选链（?.）
+// var adventurer = {
+//   name: 'Alice',
+//   cat: {
+//     name: 'Dinah'
+//   }
+// };
+// console.log(adventurer.dog?.name)
+
 
 const routerConfig = [
   {

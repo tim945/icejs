@@ -1,4 +1,16 @@
 {
+  "alias": {},
+  "modeConfig": {
+    "daily": {
+      "define": {},
+      "vendor": false
+    },
+    "prod": {
+      "define": {},
+      "vendor": true,
+      "plugins": ["build-plugin-esbuild"]
+    }
+  },
   "plugins": [
     [
       "build-plugin-fusion",
