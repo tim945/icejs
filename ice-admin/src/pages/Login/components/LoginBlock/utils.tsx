@@ -14,7 +14,7 @@ export function useInterval(callback: () => void, delay: number, isPhone: boolea
     };
     if (delay !== null) {
       const id = setInterval(tick, delay || 0);
-      return () => {console.log('destroyed');clearInterval(id)};  // 组件卸载的时候执行清除操作，此处组件为何为卸载?
+      return () => {console.log('destroyed');clearInterval(id)};  // 组件卸载的时候执行清除操作，此处组件为何为卸载? delay 条件改变时触发
     }    
   }, [delay, isPhone]);
 }

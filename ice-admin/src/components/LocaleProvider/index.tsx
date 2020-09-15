@@ -30,6 +30,8 @@ const localeInfo = {
   },
 };
 
+console.log(localeInfo)
+
 interface Props {
   locale: string;
   children: React.ReactElement;
@@ -44,6 +46,7 @@ function LocaleProvider(props: Props) {
 
   return (
     <IntlProvider locale={myLocale.appLocale} messages={myLocale.appMessages}>
+      {/* <ConfigProvider locale={myLocale.nextLocale} prefix="tim-"> */}
       <ConfigProvider locale={myLocale.nextLocale}>
         {React.Children.only(children)}
       </ConfigProvider>

@@ -44,6 +44,7 @@ export default function SelectLang() {
       <Card.Divider />
       <Card.Content>
         <FormattedMessage id="app.i18n.content" />
+        <p><FormattedMessage id="app.i18n.test" /></p>        
       </Card.Content>
     </Card>
   );

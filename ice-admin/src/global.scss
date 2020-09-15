@@ -1,5 +1,9 @@
+
+// $css-prefix: "tim-";
+
 // 引入默认全局样式
 @import '@alifd/next/reset.scss';
+// @import "@alifd/theme-design-pro/index.scss";
 
 body {
   -webkit-font-smoothing: antialiased;
