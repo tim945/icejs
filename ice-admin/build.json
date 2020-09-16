@@ -1,4 +1,8 @@
 {
+  "ssr": false,
+  "router": {
+    "lazy": true
+  },
   "alias": {},
   "modeConfig": {
     "daily": {
@@ -11,7 +15,14 @@
       "plugins": ["build-plugin-esbuild"]
     }
   },
+  "proxy": {
+	  "/api": {
+      "enable": false,
+      "target": "http://127.0.0.1:6001"
+    }
+  },
   "plugins": [
+    "build-plugin-ice-auth",
     [
       "build-plugin-fusion",
       {
@@ -25,6 +36,6 @@
           "zh-cn"
         ]
       }
-    ]
+    ]    
   ]
 }

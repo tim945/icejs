@@ -20,7 +20,7 @@ const FormItem = Form.Item;
 const Tasks = () => {
   const [taskList, taskDispatchers] = pageStore.useModel('tasks');
 
-  console.log(taskList, taskDispatchers);
+  // console.log(taskList, taskDispatchers);
   const handleSubmit = (values: IFromValue): void => {
     taskDispatchers.addTask(values);
     Message.success('提交成功');

@@ -21,9 +21,10 @@
   "devDependencies": {
     "@ice/spec": "^1.0.0",
     "build-plugin-fusion": "^0.1.0",
+    "build-plugin-ice-auth": "^1.7.1",
     "build-plugin-moment-locales": "^0.1.0",
     "eslint": "^6.0.1",
-    "ice.js": "^1.0.0",
+    "ice.js": "^1.9.0",
     "stylelint": "^13.2.0"
   },
   "scripts": {
